@@ -4,45 +4,6 @@
   <meta charset="UTF-8" />
   <title>WikiEducativa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #0044cc;
-      color: white;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav a, .cerrar {
-      color: white;
-      margin-left: 1rem;
-      text-decoration: none;
-      font-weight: bold;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    .bienvenida {
-      padding: 2rem;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>WikiEducativa</h1>
-    <nav>
-      <a id="login-link" href="login.html">Iniciar sesión</a>
-      <button id="cerrar-sesion" class="cerrar" style="display:none;"><a href="educacion.html" class="category">Cerrar sesión</a></button>
-    </nav>
-  </header>
-
-  <div class="bienvenida">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <style>
@@ -200,7 +161,8 @@
 <body>
   <header>
     <img src="img/libros.jpg" alt="Logo de WikiEducativa" />
-
+    <h1>WikiEducativa</h1>
+    <a href="login.html" class="login-btn">Iniciar sesión</a>
     <p>Busca información confiable sobre diferentes áreas del conocimiento</p>
   </header>
 
@@ -297,24 +259,3 @@
   </script>
 </body>
 </html>
-
-  <script>
-    const loginLink = document.getElementById("login-link");
-    const cerrarBtn = document.getElementById("cerrar-sesion");
-    const usuario = localStorage.getItem("usuario");
-
-    if (usuario) {
-      loginLink.textContent = "Hola, " + usuario;
-      loginLink.href = "#";
-      cerrarBtn.style.display = "inline";
-    }
-
-    cerrarBtn.addEventListener("click", () => {
-      localStorage.removeItem("usuario");
-      window.location.href = "index.html";
-    });
-  </script>
-</body>
-</html>
-
-

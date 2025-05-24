@@ -4,49 +4,52 @@
   <meta charset="UTF-8">
   <title>Terapia de Lenguaje</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #333;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f2f6ff;
+      color: #333;
+    }
     header {
-      background-color: #990000;
+      background: linear-gradient(90deg, #0099cc, #00cc99);
       color: white;
-      padding: 1rem 2rem;
+      padding: 1.5rem;
       text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
     header h1 {
-      margin: 0;
+      font-size: 2.2rem;
     }
     main {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 2rem auto;
-      padding: 1rem 2rem;
+      padding: 2rem;
       background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
     }
     h2 {
-      color: #222;
-      font-size: 1.5rem;
-      margin-top: 2rem;
+      color: #0077aa;
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem;
     }
     p {
-      line-height: 1.6;
-      text-align: justify;
-    }
-    ol, ul {
-      padding-left: 1.5rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
     }
     li {
       margin-top: 1rem;
-      font-weight: bold;
     }
     a {
-      color: #005fa3;
+      color: #00aa88;
       text-decoration: none;
     }
     a:hover {
@@ -55,103 +58,127 @@
     img {
       display: block;
       margin: 1rem auto;
-      max-width: 250px;
-      border-radius: 8px;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     .social-container {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 2rem;
       margin-top: 2rem;
     }
-    .social-container img {
-      width: 40px;
-      height: 40px;
-      transition: transform 0.3s ease;
+    .social-container a {
+      font-size: 1.8rem;
+      color: #00aa88;
+      transition: transform 0.3s, color 0.3s;
     }
-    .social-container img:hover {
-      transform: scale(1.2);
+    .social-container a:hover {
+      transform: scale(1.3);
+      color: #ff6699;
     }
     footer {
-      background-color: #222;
+      background-color: #333;
       color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
     }
+    video {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    ul, ol {
+      padding-left: 1.5rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
   </style>
 </head>
-
 <body>
-
   <header>
     <h1>Terapia de Lenguaje</h1>
   </header>
 
-  <div style="text-align: center; margin-top: 20px;">
-    <video width="800" controls muted autoplay>
+  <section data-aos="fade-up" style="text-align: center; margin-top: 20px;">
+    <video controls muted autoplay>
       <source src="img/Terapia1.mp4" type="video/mp4">
       Tu navegador no soporta el video.
     </video>
-  </div>
+  </section>
 
   <main>
-    <p>La Terapia de Lenguaje es el tratamiento que se utiliza principalmente para niños con problemas de habla y aprendizaje. Permite corregir trastornos relacionados con el uso del lenguaje, como: Retraso Fonológico, Tartamudez, y Trastorno Específico del Lenguaje.</p>
+    <section data-aos="fade-up">
+      <p>La Terapia de Lenguaje es el tratamiento que se utiliza principalmente para niños con problemas de habla y aprendizaje. Permite corregir trastornos relacionados con el uso del lenguaje.</p>
+    </section>
 
-    <h2>¿Cuál es su objetivo?</h2>
-    <p>Su objetivo es mejorar la comunicación del paciente, ayudándolo a desarrollar habilidades para expresarse verbalmente, comprender instrucciones, mejorar su pronunciación y lograr fluidez al hablar.</p>
+    <section data-aos="fade-right">
+      <h2>¿Cuál es su objetivo?</h2>
+      <p>Su objetivo es mejorar la comunicación del paciente, ayudándolo a desarrollar habilidades para expresarse verbalmente y lograr fluidez al hablar.</p>
+    </section>
 
-    <ol>
-      <li><a href="wed2.html">Retraso Fonológico</a></li>
-      <p>Dificultades para pronunciar sonidos correctamente. Puede incluir omisiones, sustituciones o distorsiones.</p>
-      <img src="img/imagen1.jpeg" alt="Retraso Fonológico">
+    <section data-aos="fade-left">
+      <ol>
+        <li><a href="wed2.html">Retraso Fonológico</a>
+          <p>Dificultades para pronunciar sonidos correctamente.</p>
+          <img src="img/imagen1.jpeg" alt="Retraso Fonológico">
+        </li>
+        <li><a href="wed1.html">Tartamudez</a>
+          <p>Interrupciones involuntarias del habla.</p>
+          <img src="img/imagen2.jpeg" alt="Tartamudez">
+        </li>
+        <li><a href="wed3.html">Trastorno Específico del Lenguaje</a>
+          <p>Afecta la capacidad de entender y producir lenguaje.</p>
+          <img src="img/imagen3.jpeg" alt="Trastorno Específico del Lenguaje">
+        </li>
+      </ol>
+    </section>
 
-      <li><a href="wed1.html">Tartamudez</a></li>
-      <p>Interrupciones involuntarias del habla, como repeticiones de sílabas o bloqueos al hablar.</p>
-      <img src="img/imagen2.jpeg" alt="Tartamudez">
+    <section data-aos="zoom-in">
+      <h2>¿Qué trastornos trata?</h2>
+      <ul>
+        <li><a href="wed4.html">Trastornos de Articulación:</a> dificultad para emitir sonidos correctamente.</li>
+        <li><a href="wed5.html">Trastornos de Fluidez:</a> como la tartamudez.</li>
+        <li><a href="wed6.html">Trastornos de la Voz:</a> alteraciones en el tono vocal.</li>
+        <li><a href="wed7.html">Disfagia Oral:</a> problemas para tragar.</li>
+        <li><a href="wed8.html">Trastornos del Lenguaje:</a> dificultades para expresarse correctamente.</li>
+      </ul>
+    </section>
 
-      <li><a href="wed3.html">Trastorno Específico del Lenguaje</a></li>
-      <p>Afecta la capacidad de entender y producir lenguaje, sin causas aparentes como sordera o discapacidad intelectual.</p>
-      <img src="img/imagen3.jpeg" alt="Trastorno Específico del Lenguaje">
-    </ol>
+    <section data-aos="fade-up">
+      <h2>¿Cómo se realiza la terapia?</h2>
+      <p>El terapeuta evalúa al niño, identifica el trastorno y diseña un tratamiento. Se usan ejercicios, juegos y prácticas comunicativas.</p>
+    </section>
 
-    <h2>¿Qué trastornos trata?</h2>
-    <ul>
-      <li><strong><a href="wed4.html">Trastornos de Articulación:</a></strong> dificultad para emitir sonidos correctamente.</li>
-      <li><strong>Trastornos de Fluidez:</strong> como la tartamudez, que afecta el ritmo del habla.</li>
-      <li><strong>Trastornos de la Voz:</strong> alteraciones en el tono o calidad vocal.</li>
-      <li><strong>Disfagia Oral:</strong> problemas para tragar o alimentarse correctamente.</li>
-      <li><strong>Trastornos del Lenguaje:</strong> dificultades para entender o expresarse correctamente.</li>
-    </ul>
+    <section data-aos="fade-up">
+      <h2>Beneficios de la Terapia de Lenguaje</h2>
+      <ul>
+        <li>Mejora la comunicación oral y escrita.</li>
+        <li>Aumenta la autoestima y confianza.</li>
+        <li>Facilita la integración escolar y social.</li>
+        <li>Previene dificultades académicas.</li>
+      </ul>
+    </section>
 
-    <h2>¿Cómo se realiza la terapia?</h2>
-    <p>Un terapeuta del lenguaje evalúa al niño, identifica el trastorno y diseña un plan de tratamiento. Las sesiones pueden incluir ejercicios de pronunciación, juegos de comunicación, trabajo con imágenes, lectura de cuentos y prácticas frente a espejo.</p>
-
-    <h2>Beneficios de la Terapia de Lenguaje</h2>
-    <ul>
-      <li>Mejora la comunicación oral y escrita.</li>
-      <li>Aumenta la autoestima y confianza del niño.</li>
-      <li>Facilita la integración escolar y social.</li>
-      <li>Previene dificultades académicas a largo plazo.</li>
-    </ul>
-
-    <h2>Síguenos en nuestras redes sociales</h2>
-    <div class="social-container">
-      <a href="https://www.facebook.com/tu_pagina" target="_blank">
-        <img src="img/facebook.png" alt="Facebook">
-      </a>
-      <a href="https://www.instagram.com/tu_pagina" target="_blank">
-        <img src="img/instagram.png" alt="Instagram">
-      </a>
-      <a href="https://wa.me/tu_numero" target="_blank">
-        <img src="img/whatsapp.png" alt="WhatsApp">
-      </a>
-    </div>
+    <section data-aos="fade-up">
+      <h2>Síguenos en redes sociales</h2>
+      <div class="social-container">
+        <a href="https://www.facebook.com/tu_pagina" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/tu_pagina" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/tu_numero" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Terapia de Lenguaje. Todos los derechos reservados. | Contacto: jhosetmanrique36@gmail.com</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>

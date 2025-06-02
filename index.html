@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Honkai Impact 3rd - Elysia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <style>
+    /* RESET */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fce4ec;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    /* HEADER */
+    header.barra-superior {
+      background-color: #ec407a;
+      color: #00ffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      user-select: none;
+      cursor: default;
+    }
+
+    /* BOTÓN HAMBURGUESA */
+    .menu-toggle {
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: #00ffff;
+      cursor: pointer;
+      display: none;
+    }
+
+    /* MENÚ */
+    nav.menu {
+      display: flex;
+    }
+    nav.menu ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav.menu ul li {
+      position: relative;
+    }
+    nav.menu ul li a {
+      display: block;
+      padding: 10px 15px;
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    nav.menu ul li:hover > a {
+      background-color: #d81b60;
+      border-radius: 5px;
+    }
+
+    /* SUBMENÚ */
+    nav.menu ul li ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #f06292;
+      display: none;
+      flex-direction: column;
+      min-width: 180px;
+      border-radius: 0 0 8px 8px;
+      z-index: 1000;
+    }
+    nav.menu ul li:hover > ul {
+      display: flex;
+    }
+    nav.menu ul li ul li {
+      border-bottom: 1px solid #f48fb1;
+    }
+    nav.menu ul li ul li:last-child {
+      border-bottom: none;
+    }
+    nav.menu ul li ul li a {
+      padding: 10px 15px;
+      color: white;
+      font-weight: 400;
+    }
+    nav.menu ul li ul li:hover > a {
+      background-color: #f48fb1;
+      border-radius: 0;
+    }
+
+    /* SUB-SUBMENÚ */
+    nav.menu ul li ul li ul {
+      top: 0;
+      left: 100%;
+      position: absolute;
+      background-color: #f48fb1;
+      display: none;
+      flex-direction: column;
+      min-width: 160px;
+      border-radius: 0 8px 8px 8px;
+    }
+    nav.menu ul li ul li:hover > ul {
+      display: flex;
+    }
+
+    /* CONTENIDO PRINCIPAL */
+    .subtitulo {
+      text-align: center;
+      font-size: 1.5rem;
+      margin: 20px 0;
+      color: #d81b60;
+      user-select: none;
+    }
+    .contenido {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto 40px auto;
+      flex-wrap: wrap;
+    }
+    .texto {
+      flex: 1 1 60%;
+      font-size: 1.1rem;
+      min-width: 280px;
+    }
+    .carrusel {
+      flex: 1 1 35%;
+      text-align: center;
+      position: relative;
+      min-width: 280px;
+    }
+    .carrusel img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease;
+    }
+    .carrusel img:hover {
+      transform: scale(1.05);
+    }
+
+    .indicadores {
+      margin-top: 10px;
+      user-select: none;
+    }
+    .punto {
+      height: 12px;
+      width: 12px;
+      margin: 0 6px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .punto.activo,
+    .punto:hover {
+      background-color: #ec407a;
+    }
+
+    /* INFORMACIÓN EXTRA */
+    .informacion-elysia {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      padding: 20px;
+      background-color: #ffe0ec;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .informacion-elysia h2 {
+      margin-bottom: 15px;
+      color: #d81b60;
+      text-align: center;
+      user-select: none;
+    }
+    .informacion-elysia h3 {
+      margin-top: 20px;
+      color: #ad1457;
+    }
+    .informacion-elysia p,
+    .informacion-elysia ul {
+      margin-top: 8px;
+      font-size: 1rem;
+      color: #444;
+    }
+    .informacion-elysia ul li {
+      margin-bottom: 6px;
+    }
+
+    /* BOTÓN IR ARRIBA */
+    a#ir-arriba {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background: #ec407a;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s;
+      z-index: 1000;
+      user-select: none;
+    }
+    a#ir-arriba:hover {
+      background-color: #d81b60;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      nav.menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #ec407a;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        border-radius: 0 0 10px 10px;
+        z-index: 1000;
+      }
+      nav.menu.open {
+        display: flex;
+      }
+      nav.menu ul {
+        flex-direction: column;
+        gap: 0;
+      }
+      nav.menu ul li {
+        width: 100%;
+      }
+      nav.menu ul li a {
+        padding: 12px 20px;
+        border-bottom: 1px solid #d81b60;
+      }
+      /* Submenús no se abren al hover, se abre con click */
+      nav.menu ul li ul,
+      nav.menu ul li ul li ul {
+        position: static;
+        background-color: #f48fb1;
+        border-radius: 0;
+        display: none !important;
+      }
+      nav.menu ul li.open > ul {
+        display: flex !important;
+        flex-direction: column;
+      }
+      nav.menu ul li ul li.open > ul {
+        display: flex !important;
+      }
+      .contenido {
+        flex-direction: column;
+        padding: 10px;
+      }
+      .texto, .carrusel {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <header class="barra-superior">
+    <div class="logo">Honkai Impact 3rd</div>
+    <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+    <nav class="menu">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li class="has-submenu">
+          <a href="#">Personajes</a>
+          <ul>
+            <li class="has-submenu">
+              <a href="#">Elysia</a>
+              <ul>
+                <li><a href="#">Historia</a></li>
+                <li><a href="#">Poderes</a></li>
+                <li><a href="#">Curiosidades</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#">Kevin</a>
+              <ul>
+                <li><a href="#">Origen</a></li>
+                <li><a href="#">Combate</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#">Mobius</a>
+              <ul>
+                <li><a href="#">Biografía</a></li>
+                <li><a href="#">Científica M.O.T.H</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#">Galería</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h2 class="subtitulo">Elysia - La Diosa del Honkai</h2>
+
+  <section class="contenido">
+    <article class="texto">
+      <p>
+        Elysia es uno de los personajes principales de Honkai Impact 3rd. Se destaca por su fuerza divina y habilidades únicas que la convierten en una de las guerreras más poderosas del universo Honkai.
+      </p>
+      <p>
+        Su historia es profunda y emotiva, y su conexión con el Honkai la hace vital para el desarrollo del juego y su lore.
+      </p>
+    </article>
+    <aside class="carrusel">
+      <img src="L.WEBP" alt="Elysia imagen 1" id="imagen-carrusel" />
+      <div class="indicadores" id="indicadores">
+        <!-- Puntos se crearán por JS -->
+      </div>
+    </aside>
+  </section>
+
+  <section class="informacion-elysia">
+    <h2>Más Información sobre Elysia</h2>
+    <h3>Historia</h3>
+    <p>
+      Elysia es la manifestación de una antigua diosa que protege la humanidad del Honkai. Su aparición cambió el curso de las batallas y dio esperanza a los guerreros.
+    </p>
+    <h3>Poderes</h3>
+    <ul>
+      <li>Control de energía Honkai.</li>
+      <li>Capacidad para manipular el tiempo durante breves momentos.</li>
+      <li>Regeneración acelerada.</li>
+    </ul>
+    <h3>Curiosidades</h3>
+    <ul>
+      <li>Es uno de los personajes favoritos por la comunidad por su diseño y lore.</li>
+      <li>Sus ataques tienen animaciones espectaculares.</li>
+      <li>Participa en eventos especiales dentro del juego.</li>
+    </ul>
+  </section>
+
+  <a href="#top" id="ir-arriba" title="Ir arriba">&#8679;</a>
+
+  <script>
+    // MENÚ RESPONSIVE Y SUBMENÚ CLICK
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('nav.menu');
+    const submenuParents = document.querySelectorAll('nav.menu .has-submenu');
+
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+
+    // En móvil, abrir submenús con click
+    submenuParents.forEach(parent => {
+      parent.addEventListener('click', (e) => {
+        if(window.innerWidth <= 768) {
+          e.preventDefault();
+          parent.classList.toggle('open');
+        }
+      });
+    });
+
+    // CARRUSEL
+    const imagenes = [
+      { src: 'L.WEBP', alt: 'Elysia imagen 1' },
+      { src: 's.WEBP', alt: 'Elysia imagen 2' },
+      { src: 'Y.WEBP', alt: 'Elysia imagen 3' }
+    ];
+    let indiceActual = 0;
+
+    const imgCarrusel = document.getElementById('imagen-carrusel');
+    const indicadoresDiv = document.getElementById('indicadores');
+
+    // Crear puntos indicadores
+    imagenes.forEach((img, i) => {
+      const punto = document.createElement('span');
+      punto.classList.add('punto');
+      if(i === 0) punto.classList.add('activo');
+      punto.addEventListener('click', () => {
+        indiceActual = i;
+        actualizarCarrusel();
+      });
+      indicadoresDiv.appendChild(punto);
+    });
+
+    function actualizarCarrusel() {
+      imgCarrusel.src = imagenes[indiceActual].src;
+      imgCarrusel.alt = imagenes[indiceActual].alt;
+      const puntos = document.querySelectorAll('.punto');
+      puntos.forEach((p, i) => {
+        p.classList.toggle('activo', i === indiceActual);
+      });
+    }
+
+    // Cambio automático cada 5 segundos
+    setInterval(() => {
+      indiceActual = (indiceActual + 1) % imagenes.length;
+      actualizarCarrusel();
+    }, 5000);
+
+    // BOTÓN IR ARRIBA - Se muestra solo si scrollea hacia abajo
+    const botonIrArriba = document.getElementById('ir-arriba');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 200) {
+        botonIrArriba.style.display = 'block';
+      } else {
+        botonIrArriba.style.display = 'none';
+      }
+    });
+    // Inicialmente oculto
+    botonIrArriba.style.display = 'none';
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+const imagenes = ["L.WEBP", "Y.WEBP", "S.WEBP"];
+let indice = 0;
+
+function mostrarImagen(i) {
+  document.getElementById("imagen-carrusel").src = imagenes[i];
+  actualizarIndicadores(i);
+  indice = i;
+}
+
+function siguiente() {
+  indice = (indice + 1) % imagenes.length;
+  mostrarImagen(indice);
+}
+
+function anterior() {
+  indice = (indice - 1 + imagenes.length) % imagenes.length;
+  mostrarImagen(indice);
+}
+
+function irAImagen(i) {
+  mostrarImagen(i);
+}
+
+function actualizarIndicadores(i) {
+  const puntos = document.querySelectorAll(".punto");
+  puntos.forEach((p, index) => {
+    p.classList.toggle("activo", index === i);
+  });
+}
+
+window.onload = () => {
+  mostrarImagen(indice);
+};
